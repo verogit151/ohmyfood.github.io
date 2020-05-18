@@ -1,0 +1,292 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./base/typography";
+
+@keyframes shake {
+	0% { transform: translate(1px, 1px) rotate(0deg); }
+	10% { transform: translate(-1px, -2px) rotate(-1deg); }
+	20% { transform: translate(-3px, 0px) rotate(1deg); }
+	30% { transform: translate(3px, 2px) rotate(0deg); }
+	40% { transform: translate(1px, -1px) rotate(1deg); }
+	50% { transform: translate(-1px, 2px) rotate(-1deg); }
+	60% { transform: translate(-3px, 1px) rotate(0deg); }
+	70% { transform: translate(3px, 1px) rotate(-1deg); }
+	80% { transform: translate(-1px, -1px) rotate(1deg); }
+	90% { transform: translate(1px, 2px) rotate(0deg); }
+	100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+* {
+	font-family: Arial, Helvetica, sans-serif;
+}
+body {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+}
+.container {
+	@include large-only {
+		max-width: 1000px;
+	}
+	display: grid;
+	grid-gap: 20px;
+  	grid-template-columns: 1fr;
+  	grid-template-rows: repeat(4, auto);
+  	grid-template-areas:  "logo"
+                          "menus"
+						  "bouton"
+						  "footer";
+	margin: auto;
+}
+.container-page {
+	@include large-only {
+		max-width: 1000px;
+	}
+	display: grid;
+	grid-gap: 20px;
+  	grid-template-columns: 1fr;
+  	grid-template-rows: repeat(4, auto);
+	grid-template-areas:  "logo"
+	      				  "titre"
+                          "menus-page"
+						  "footer";
+	margin: auto;
+}
+
+header {
+	grid-area: logo;
+	height: 200px;
+	background-color: $color-bg-theme;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.logo {
+	@include mobile-only {
+		background: url("../images/Logo-ohmyfood_small.png") no-repeat; 
+		width: 250px;
+		height: 58px;
+		margin-top: 70px;
+	}
+	@include medium-only {
+		background: url("../images/Logo-ohmyfood.png") no-repeat; 
+		width: 465px;
+		height: 107px;
+		margin-top: 45px;
+	}
+	display: inline-block;
+	
+}
+.container section {
+	grid-area: menus;
+	display: grid;
+	@include mobile-only {
+		grid-template-columns: 1fr;
+		grid-gap: 1%;
+	}
+	@include medium-only {
+		grid-template-columns: repeat(2, 1fr);
+		grid-gap: 6%;
+	}
+	margin: 5% 12%;
+}
+.container-page section {
+	margin: 5% 10%;
+}
+.espace {
+	@include espace-menu($color-bg-menu);
+}
+
+.zoom {
+	transition: transform .2s;
+	&:hover {
+		-ms-transform: scale(1.4); /* IE 9 */
+		-webkit-transform: scale(1.5); /* Safari 3-8 */
+		transform: scale(1.4); 
+	}
+}
+
+.titremenu .gradient {
+	@include titregradient($menus);
+}
+.gradient {
+	@include gradient($menus);
+}
+.titre {
+	@include titre-menu($menus);
+}
+h1 {
+	grid-area: titre;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: -30px;
+	@include xsmall-only {
+		font-size: 26px;
+	}
+	@include small-only {
+		font-size: 40px;
+	}
+	@include medium-only {
+		font-size: 44px;
+	}
+}
+.pagemenu {
+	width:100%;
+	margin : 5% auto;
+	box-shadow: $shadow;
+}
+
+.titremenu {
+	text-align: center;
+	@include xsmall-only {
+		padding-top: 50px;
+	}
+	@include small {
+		padding-top: 100px;
+	}
+}
+	
+.type {
+	@include type-menu($menus);
+}
+.entree {
+	color:map-get($color-menu2, "entree"); 
+}
+.plat {
+	color:map-get($color-menu2, "plat"); 
+}
+.dessert {
+	color:map-get($color-menu2, "dessert"); 
+}
+
+.menu {
+	@include menu($menus);
+}
+#pagementions {
+	grid-area: menus-page;
+	margin: 75px 50px 200px 50px;
+	text-align: justify;
+}
+.basmenu {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 90px;
+	@include xsmall-only {
+		padding-bottom: 45px;
+	}
+	@include small {
+		padding-bottom: 130px;
+	}
+}
+.bas-menu1 {
+	display : inline-block;
+	padding-top: 15px;
+	padding-left: 30px;
+	font-family: map-get($font-menu, "menu1");
+	color: map-get($color-menu , "menu1");
+	@include xsmall-only {
+		font-size: 20px;
+	}
+	@include small-only {
+		font-size: 30px;
+	}
+	@include medium-only {
+		font-size: 40px;
+	}
+} 
+
+.prochainement {
+	margin-top: 15px;
+	@include xsmall-only {
+		margin-left: 52px;
+		height: 40px;
+	}
+	@include small-only {
+		margin-left: 68px;
+		height: 52px;
+	}
+	@include medium-only {
+		margin-left: 85px;
+		height: 60px;
+	}
+} 
+button{
+	grid-area: bouton;
+	display: flex;
+	margin: 40px auto 80px auto;
+	background-color: $color-bg-theme;
+	color: $color-theme;
+	border-radius: 25px;
+	@include xsmall-only {
+		font-size: 18px;
+		height: 70px;
+		width:250px;
+	}
+	@include small-only {
+		font-size: 28px;
+		height: 75px;
+		width:360px;
+	}
+	@include medium-only {
+		font-size:38px;
+		height: 80px;
+		width:460px;
+	}
+}
+.prochainement:after {
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: bottom;
+	-webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+	animation: ellipsis steps(4,end) 900ms infinite;
+	content: "\2026"; /* ascii code for the ellipsis character */
+	width: 0px;
+}
+@keyframes ellipsis {
+	to {
+		width: 1.25em;    
+	}
+}
+@-webkit-keyframes ellipsis {
+	to {
+		width: 1.25em;    
+	}
+}
+
+footer {
+	grid-area: footer;
+	bottom: 0;
+	max-width: 1000px;
+	width: 100%;
+	margin: auto;
+	height: 80px;
+	position: fixed;
+	background-color: $color-bg-theme;
+	display: flex;
+	justify-content: space-between;
+}
+footer a {
+	text-decoration: none;
+	color: $color-theme;
+	display: block;
+	@include xsmall-only {
+		font-size: 16px;
+		padding: 30px 15px 30px 15px;
+	}
+	@include small-only {
+		font-size: 24px;
+		padding: 25px;
+	}
+	@include medium-only {
+		font-size: 32px;
+		padding: 25px;
+	}
+}
+
+.wiggle:hover {
+	/* Secoue le bouton pendant 0.5s et recommence */
+	animation: shake 0.5s;
+	animation-iteration-count: infinite;
+  }

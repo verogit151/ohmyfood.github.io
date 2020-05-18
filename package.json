@@ -1,0 +1,17 @@
+{
+  "name": "p3_galland_veronique",
+  "version": "1.0.0",
+  "description": "ohmyfood",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/main.scss:./css/style.css",
+    "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/prefixed/"
+  },
+  "author": "VG",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/verogit151/ohmyfood.git"
+  }
+}

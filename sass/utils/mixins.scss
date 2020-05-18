@@ -1,0 +1,377 @@
+@mixin xsmall-only {
+	@media screen and (max-width: map-get($breakpoints, sm)) {
+		@content;
+	}
+}
+@mixin small-only {
+	@media screen and (max-width: map-get($breakpoints, md)) and (min-width: map-get($breakpoints, sm)){
+		@content;
+	}
+}
+@mixin small {
+	@media screen and (min-width: map-get($breakpoints, sm)){
+		@content;
+	}
+}
+@mixin mobile-only {
+	@media screen and (max-width: map-get($breakpoints, md)) {
+		@content;
+	}
+}
+@mixin medium-only {
+	@media screen and (min-width: map-get($breakpoints, md)) {
+		@content;
+	}
+}
+@mixin large-only {
+	@media screen and (min-width: map-get($breakpoints, lg)) {
+		@content;
+	}
+}
+
+@mixin titre-menu($num) {
+	@each $menu, $val in $num {
+		&#{$menu} {
+			font-size: map-get($font-size-titre, $val);
+			font-family: map-get($font-titre, $val);
+			color: map-get($color-menu, $val);
+			margin-top: 3%; 
+		
+		}
+	}
+}
+@mixin color-bg-menu($num) {
+	@each $menu, $val in $num {
+		&#{$menu} {
+			background-color: $val;
+		}
+	}
+}
+@mixin espace-menu($num) {
+	@each $menu, $val in $num {
+		&#{$menu} {
+			background-color: $val;
+			height: $espace-menu-h;
+			//width: $espace-menu-w;
+			box-shadow: $shadow;
+			text-align: center;
+			padding-top: 40%;
+			overflow: hidden;
+
+			text-decoration: none;
+		}
+		&#{$menu} img {
+			margin-top: -50px;
+		}
+		&#{$menu} .gradient {
+			@include espacegradient($menus);
+		}
+	}
+}
+@mixin zoom-menu($num) {
+	@each $menu, $val in $num {
+		&-#{$menu} {
+			transition: transform .2s;
+		}
+		&-#{$menu}:hover {
+			-ms-transform: scale(1.5); /* IE 9 */
+			-webkit-transform: scale(1.5); /* Safari 3-8 */
+			transform: scale(1.5); 
+		}
+	}
+}
+@mixin espacegradient($num) {
+	@each $menu, $val in $num {
+		&-#{$menu} {
+			@include xsmall-only {
+				font-size: map-get($font-size-menu-xs, $val);
+			}
+			@include small-only {
+				font-size: map-get($font-size-menu-sm, $val);
+			}
+			@include medium-only {
+				font-size: map-get($font-size-menu-md, $val);
+			}
+		}
+	}
+}
+@mixin titregradient($num) {
+	@each $menu, $val in $num {
+		&-#{$menu} {
+			@include xsmall-only {
+				font-size: map-get($font-size-page-titre-xs, $val);
+			}
+			@include small-only {
+				font-size: map-get($font-size-page-titre-sm, $val);
+			}
+			@include medium-only {
+				font-size: map-get($font-size-page-titre-md, $val);
+			}
+		}
+	}
+}
+@mixin gradient($num) {
+	@each $menu, $val in $num {
+		@if ($val == "menu1") {
+			&-#{$menu} {
+				font-family: map-get($font-menu, $val);
+				display: block;
+				background: map-get($color-bg-menu, $val);
+				color: map-get($color-menu, $val);
+				margin-top: 5px;
+			}
+		}
+		@else {
+			&-#{$menu} {
+				@include xsmall-only {
+					font-size: map-get($font-size-menu-xs, $val);
+				}
+				@include small-only {
+					font-size: map-get($font-size-menu-sm, $val);
+				}
+				@include medium-only {
+					font-size: map-get($font-size-menu-md, $val);
+				}
+				font-family: map-get($font-menu, $val);
+				display: block;
+				background: map-get($color-bg-menu, $val);
+				color: black;
+				position: relative;
+				margin-left: 30px;
+				margin-right:30px;
+				&::before {
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					background: -webkit-linear-gradient(left, map-get($degrade,$val));
+					background: linear-gradient(to right, map-get($degrade,$val));
+					content: '';
+					display: block;
+					mix-blend-mode: lighten;
+				}
+			}
+		}
+	}
+}
+@mixin type-menu($num) {
+	@each $menu, $val in $num {
+		&#{$menu} {
+			display: flex;
+			justify-content: space-between;	
+			@include xsmall-only {
+				margin-top: 38px;
+				margin-bottom: 10px;
+			}
+			@include small-only {
+				margin-top: 50px;
+				margin-bottom: 30px;
+			}
+			@include medium-only {
+				margin-top: 70px;
+				margin-bottom: 25px;
+			}
+			@if ($val == "menu1") {
+				padding-left: 7%;
+				padding-right: 7%;
+			}
+			@else {
+				padding-left: 4%;
+				padding-right: 4%;
+			}
+		}
+		&#{$menu} .titrecategorie {
+			@if ($val == "menu2") {
+				&-entree {
+					white-space: nowrap;
+					position: relative;
+					@include xsmall-only {
+						font-size: 10px;
+						line-height: 24px;
+					}
+					@include small-only {
+						font-size: 12px;
+						line-height: 20px;
+					}
+					@include medium-only {
+						font-size: 20px;
+						line-height: 16px;
+					}
+					font-family: map-get($font-titre, $val);
+					color: map-get($color-menu2, "entree");
+					&:after{
+						content: '';
+						position: absolute;
+						width: 0; height: 3px;
+						display: block;
+						margin-top: 5px;
+						right: 0;
+						background: map-get($color-menu2, "entree");
+						transition: width .2s ease;
+						-webkit-transition: width .2s ease;
+					}
+					&:hover:after{ 
+						width: 100%;
+						left: 0;
+						background: map-get($color-menu2, "entree");
+					}	
+				}
+				&-plat {
+					white-space: nowrap;
+					position: relative;
+					@include xsmall-only {
+						font-size: 10px;
+						line-height: 24px;
+					}
+					@include small-only {
+						font-size: 12px;
+						line-height: 20px;
+					}
+					@include medium-only {
+						font-size: 20px;
+						line-height: 16px;
+					}
+					font-family: map-get($font-titre, $val);
+					color:map-get($color-menu2, "plat");
+					&:after{
+						content: '';
+						position: absolute;
+						width: 0; height: 3px;
+						display: block;
+						margin-top: 5px;
+						right: 0;
+						background: map-get($color-menu2, "plat");
+						transition: width .2s ease;
+						-webkit-transition: width .2s ease;
+					}
+					&:hover:after{ 
+						width: 100%;
+						left: 0;
+						background: map-get($color-menu2, "plat");
+					}	
+				}
+				&-dessert {
+					white-space: nowrap;
+					position: relative;
+					@include xsmall-only {
+						font-size: 10px;
+						line-height: 24px;
+					}
+					@include small-only {
+						font-size: 12px;
+						line-height: 20px;
+					}
+					@include medium-only {
+						font-size: 20px;
+						line-height: 16px;
+					}
+					font-family: map-get($font-titre, $val);
+					color:map-get($color-menu2, "dessert");
+					&:after{
+						content: '';
+						position: absolute;
+						width: 0; height: 3px;
+						display: block;
+						margin-top: 5px;
+						right: 0;
+						background: map-get($color-menu2, "dessert");
+						transition: width .2s ease;
+						-webkit-transition: width .2s ease;
+					}
+					&:hover:after{ 
+						width: 100%;
+						left: 0;
+						background: map-get($color-menu2, "dessert");
+					}	
+				}
+			}
+			@else {
+				white-space: nowrap;
+				position: relative;
+				@include xsmall-only {
+					font-size: 10px;
+					line-height: 22px;;
+				}
+				@include small-only {
+					font-size: 14px;
+					line-height: 20px;
+				}
+				@include medium-only {
+					font-size: 16px;
+					line-height: 14px;
+				}
+				@include large-only {
+					font-size: 20px;
+					line-height: 12px;
+				}
+				font-family: map-get($font-titre, $val);
+			}
+		}
+		&#{$menu} .titrecategorie:after{
+			content: '';
+			position: absolute;
+			width: 0; height: 3px;
+			display: block;
+			margin-top: 5px;
+			right: 0;
+			background: map-get($color-menu, $val);
+			transition: width .2s ease;
+			-webkit-transition: width .2s ease;
+		}
+		&#{$menu} .titrecategorie:hover:after{ 
+			width: 100%;
+			left: 0;
+			background: map-get($color-menu, $val);
+		}
+		
+		&#{$menu} img {
+			align-self: center;
+		}
+	}
+}
+@mixin menu($num) {
+	@each $menu, $val in $num {
+		&-#{$menu} {
+			background: map-get($color-bg-menu, $val);
+		}
+		&-#{$menu} p {
+			display: flex;
+			justify-content: space-between;
+			@include xsmall-only {
+				font-size: 8px;
+			}
+			@include small-only {
+				font-size: 10px;
+				line-height: 20px;
+			}
+			@include medium-only {
+				font-size: 13px;
+				line-height: 25px;
+			}
+			@include large-only {
+				font-size: 15px;
+				line-height: 30px;
+			}
+			font-family: map-get($font-titre, $val);
+			padding-left: 7%;
+			padding-right: 7%;	
+		}
+		&-#{$menu} span {
+			font-family: map-get($font-titre, $val);
+			@include xsmall-only {
+				font-size: 10px;
+			}
+			@include small-only {
+				font-size: 12px;
+			}
+			@include medium-only {
+				font-size: 15px;
+			}
+			@include large-only {
+				font-size: 18px;
+			}
+			font-weight: bold;	
+		}
+	}
+}

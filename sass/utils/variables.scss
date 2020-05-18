@@ -1,0 +1,40 @@
+/*Responsive design : breakpoints*/
+$breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px);
+
+/*Variables : les couleurs */
+$color-bg-theme: #579c87;
+$color-theme: #fdcb46;
+$color-bg-menu: (menu1: #fcdfdb, menu2: #fff5fe, menu3: #f9f9f9, menu4: #fdfffd); 
+$color-menu: (menu1: #3c1218, menu2: #c77412, menu3: #0887fb, menu4: #72bf56); 
+$color-menu2 : (entree: #c67412, plat: #a56799, dessert: #6e4ccc);
+$degrade : (menu2: (#d8852e, #905bfd), menu3: (#0431df, #0887fb), menu4: (#3d9339, #bfff7e));
+
+/*Variables : les polices */
+$font-menu: (menu1: "devonshire", menu2: "croissantone", menu3: "dancingscript", menu4: "kaushanscript"); 
+$font-titre: (menu1: "segoeprint", menu2: "cantata", menu3: "segoeprint", menu4: "segoeprint");
+
+/*Variables : les tailles */
+$font-size-menu-xs: (menu1: 30px, menu2: 15px, menu3: 24px, menu4: 24px); 
+$font-size-menu-sm: (menu1: 40px, menu2: 28px, menu3: 42px, menu4: 42px); 
+$font-size-menu-md: (menu1: 35px, menu2: 18px, menu3: 28px, menu4: 28px); 
+
+// $font-size-titre: (menu1: 40px, menu2: 46px, menu3: 40px, menu4: 40px); 
+$font-size-titre: (menu1: 35px, menu2: 38px, menu3: 36px, menu4: 36px); 
+$font-size-page-titre-xs: (menu1: 32px, menu2: 24px, menu3: 45px, menu4: 45px); 
+$font-size-page-titre-sm: (menu1: 48px, menu2: 34px, menu3: 54px, menu4: 56px); 
+$font-size-page-titre-md: (menu1: 56px, menu2: 38px, menu3: 70px, menu4: 70px); 
+
+$shadow : 0px 0px 20px #d8d7d7;
+$menus : (menu1 : "menu1", menu2 : "menu2", menu3 : "menu3", menu4 : "menu4");
+
+/* Taille des menus */
+$espace-menu-h: 340px;
+$espace-menu-w: 300px;	  
+// @media (min-width: 992px) {
+//     $espace-menu-h: 380px;
+//     $espace-menu-w: 400px;	  
+// }
+// @media (min-width: 768px) {
+//     $espace-menu-h: 294px;
+//     $espace-menu-w: 310px;  
+// }
