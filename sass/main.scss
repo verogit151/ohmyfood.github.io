@@ -21,6 +21,8 @@
 }
 body {
 	width: 100%;
+	overflow-x: hidden; 
+	overflow-y: auto;
 }
 img {
 	max-width: 100%;
