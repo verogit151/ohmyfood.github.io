@@ -788,8 +788,8 @@ h1 {
   margin-top: 5px;
   right: 0;
   background: #3c1218;
-  transition: width 0.2s ease;
-  -webkit-transition: width 0.2s ease;
+  transition: width 0.9s ease;
+  -webkit-transition: width 0.9s ease;
 }
 .typemenu1 .titrecategorie:hover:after {
   width: 100%;
@@ -955,8 +955,8 @@ h1 {
   margin-top: 5px;
   right: 0;
   background: #c77412;
-  transition: width 0.2s ease;
-  -webkit-transition: width 0.2s ease;
+  transition: width 0.9s ease;
+  -webkit-transition: width 0.9s ease;
 }
 .typemenu2 .titrecategorie:hover:after {
   width: 100%;
@@ -1028,8 +1028,8 @@ h1 {
   margin-top: 5px;
   right: 0;
   background: #0887fb;
-  transition: width 0.2s ease;
-  -webkit-transition: width 0.2s ease;
+  transition: width 0.9s ease;
+  -webkit-transition: width 0.9s ease;
 }
 .typemenu3 .titrecategorie:hover:after {
   width: 100%;
@@ -1101,8 +1101,8 @@ h1 {
   margin-top: 5px;
   right: 0;
   background: #72bf56;
-  transition: width 0.2s ease;
-  -webkit-transition: width 0.2s ease;
+  transition: width 0.9s ease;
+  -webkit-transition: width 0.9s ease;
 }
 .typemenu4 .titrecategorie:hover:after {
   width: 100%;
